@@ -37,7 +37,7 @@ class InternshipController extends Controller
 
         //     ];
 
-            
+
         // }
         return response()->json($internships, Response::HTTP_OK);
     }
@@ -99,11 +99,11 @@ class InternshipController extends Controller
             $internship->isPaid = $request->isPaid;
 
 
-            $locationController = new locationController;
+            $locationController = new LocationController;
             $locationId = $locationController->getLocation($request->locationName);
             $internship->location_id = $locationId;
 
-            $tagController = new tagController;
+            $tagController = new TagController;
             $tagId = $tagController->getTag($request->tagName);
             $internship->tag_id = $tagId;
             $internship->save();
@@ -130,7 +130,7 @@ class InternshipController extends Controller
     public function show($internshipId)
     {
         //
-        
+
         $intern = Internship::findOrFail($internshipId);
 
 
@@ -180,7 +180,7 @@ class InternshipController extends Controller
      */
     public function update(Request $request, $internshipId)
     {
-        
+
         $internship = Internship::findOrFail($internshipId);
 
 
@@ -219,11 +219,11 @@ class InternshipController extends Controller
             $internship->isWfh = $request->isWfh;
             $internship->isPaid = $request->isPaid;
 
-            $locationController = new locationController;
+            $locationController = new LocationController;
             $locationId = $locationController->getLocation($request->locationName);
             $internship->location_id = $locationId;
 
-            $tagController = new tagController;
+            $tagController = new TagController;
             $tagId = $tagController->getTag($request->tagName);
             $internship->tag_id = $tagId;
             $internship->save();
