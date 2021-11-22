@@ -39,12 +39,12 @@ class InternshipController extends Controller
 
         return response()->json($internships, Response::HTTP_OK);
     }
-    public function listById($userId)
+    public function listByUser($userId)
     {
 
-        $internships = Internship::where('user_id',$userId)
+        $internships = Internship::where('user_id', $userId)
             ->orderBy('id', 'DESC')
-            ->with(['user', 'location','tag'])
+            ->with(['user', 'location', 'tag'])
             ->get();
 
 
@@ -245,7 +245,7 @@ class InternshipController extends Controller
         }
     }
 
-     /**
+    /**
 
      * @param  int  $name
      * @return \Illuminate\Http\Response
@@ -253,6 +253,21 @@ class InternshipController extends Controller
     public function search($name)
     {
         //
-        return Internship::where('programName','like','%'.$name.'%')->get();
+        return Internship::where('programName', 'like', '%' . $name . '%')->get();
+    }
+
+    public function listByTag($tag_id)
+    {
+        return Internship::where('tag_id', $tag_id)
+            ->orderBy('id', 'DESC')
+            ->with(['user', 'location', 'tag'])
+            ->get();
+    }
+    public function listByLocation($location_id)
+    {
+        return Internship::where('location_id', $location_id)
+            ->orderBy('id', 'DESC')
+            ->with(['user', 'location', 'tag'])
+            ->get();
     }
 }

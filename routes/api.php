@@ -30,22 +30,22 @@ Route::post('v1/login-user', [UserController::class, 'login']);
 
 //INTERNSHIP
 Route::get('/v1/internship', [InternshipController::class, 'index']);
-Route::get('/v1/myInternship/{userId}',[InternshipController::class,'listById']);
 Route::get('/v1/internship/{internship_id}', [InternshipController::class, 'show']);
 Route::post('/v1/internship/{user_id}', [InternshipController::class, 'store']);
 Route::put('/v1/internship/{internship_id}', [InternshipController::class, 'update']);
 Route::delete('/v1/internship/{internship_id}', [InternshipController::class, 'destroy']);
-Route::post('/v1/internship/search/{name}', [InternshipController::class, 'search']);
-
+Route::get('/v1/internship/search/{name}', [InternshipController::class, 'search']);
+Route::get('/v1/internship/user/{user_id}',[InternshipController::class,'listByUser']);
+Route::get('/v1/internship/tag/{tag_id}', [InternshipController::class, 'listByTag']);
+Route::get('/v1/internship/location/{location_id}', [InternshipController::class, 'listByTag']);
 //TAG
 Route::get('/v1/tag', [TagController::class, 'index']);
-Route::post('/v1/tag/{tag_id}', [TagController::class, 'show']);
-Route::post('/v1/tag/search/{name}', [TagController::class, 'search']);
+Route::get('/v1/tag/search/{name}', [TagController::class, 'search']);
 
 //LOCATION
 Route::get('/v1/location', [LocationController::class, 'index']);
-Route::post('/v1/location/{location_id}', [LocationController::class, 'show']);
-Route::post('/v1/location/search/{name}', [LocationController::class, 'search']);
+Route::get('/v1/location/search/{name}', [LocationController::class, 'search']);
+
 
 
 

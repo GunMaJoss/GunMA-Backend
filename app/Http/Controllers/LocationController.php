@@ -13,10 +13,6 @@ class LocationController extends Controller
 
     }
 
-    public function show ($id){
-        return  Location::findOrFail($id);
-
-    }
     public function search ($name){
         return Location::where('locationName','like','%'.$name.'%')->get();
 
