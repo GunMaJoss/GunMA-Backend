@@ -37,7 +37,7 @@ Route::delete('/v1/internship/{internship_id}', [InternshipController::class, 'd
 Route::get('/v1/internship/search/{name}', [InternshipController::class, 'search']);
 Route::get('/v1/internship/user/{user_id}',[InternshipController::class,'listByUser']);
 Route::get('/v1/internship/tag/{tag_id}', [InternshipController::class, 'listByTag']);
-Route::get('/v1/internship/location/{location_id}', [InternshipController::class, 'listByTag']);
+Route::get('/v1/internship/location/{location_id}', [InternshipController::class, 'listByLocation']);
 //TAG
 Route::get('/v1/tag', [TagController::class, 'index']);
 Route::get('/v1/tag/search/{name}', [TagController::class, 'search']);
