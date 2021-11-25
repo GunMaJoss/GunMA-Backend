@@ -24,20 +24,18 @@ class InternshipController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
     public function index(Request $request)
     {
-        // if( !Auth::check()) {
-        //     return response()->json([
-        //         "error" => "User No Found"
-        //     ]);
-        // }
-
+        // $this->authorize('viewAny', Internship::class);
         $internships = Internship::orderBy('id', 'DESC')
             ->with(['user', 'location', 'tag'])
             ->get();
 
-
         return response()->json($internships, Response::HTTP_OK);
+        // return response()->json(Auth::check(), Response::HTTP_OK);
+
+
     }
     public function listByUser($userId)
     {
@@ -266,6 +264,20 @@ class InternshipController extends Controller
     public function listByLocation($location_id)
     {
         return Internship::where('location_id', $location_id)
+            ->orderBy('id', 'DESC')
+            ->with(['user', 'location', 'tag'])
+            ->get();
+    }
+    public function listByIsPaid($isPaid)
+    {
+        return Internship::where('isPaid', $isPaid)
+            ->orderBy('id', 'DESC')
+            ->with(['user', 'location', 'tag'])
+            ->get();
+    }
+    public function listByIsWfh($isWfh)
+    {
+        return Internship::where('isWfh', $isWfh)
             ->orderBy('id', 'DESC')
             ->with(['user', 'location', 'tag'])
             ->get();
