@@ -24,7 +24,7 @@ class CreateInternshipsTable extends Migration
             $table->string('programName');
             $table->string('isPaid')->nullable()->default('false');
             $table->string('isWfh')->nullable()->default('false');
-            $table->string('imageUrl')->nullable();
+            $table->string('imageUrl')->nullable()->default(('url'));
             $table->string('description')->nullable();
             $table->string('benefit')->nullable();
             $table->string('requirement')->nullable();
