@@ -41,6 +41,7 @@ Route::get('/v1/internship/tag/{tag_id}', [InternshipController::class, 'listByT
 Route::get('/v1/internship/location/{location_id}', [InternshipController::class, 'listByLocation']);
 Route::get('/v1/internship/isPaid/{isPaid}', [InternshipController::class, 'listByIsPaid']);
 Route::get('/v1/internship/isWfh/{isWfh}', [InternshipController::class, 'listByIsWfh']);
+
 //TAG
 Route::get('/v1/tag', [TagController::class, 'index']);
 Route::get('/v1/tag/search/{name}', [TagController::class, 'search']);
