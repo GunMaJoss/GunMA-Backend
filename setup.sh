@@ -8,3 +8,6 @@ WebServerContainerName=gunma_webserver
 #migrate
 docker exec $PhpContainerName \
   php artisan migrate \
+
+#Change permission storage
+sudo chmod 777 -R storage

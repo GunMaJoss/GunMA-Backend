@@ -55,11 +55,11 @@ Route::get('/v1/location/search/{name}', [LocationController::class, 'search']);
 
 // non-public
 Route::middleware('auth:sanctum')->group(function () {
-    Route::get('user', [UserController::class, 'fetch']);
-    Route::post('update-profile', [UserController::class, 'updateProfile']);
-    Route::post('logout', [UserController::class, 'logout']);
-    Route::post('delete', [UserController::class, 'delete']);
-    Route::get('detail-profile', [UserController::class, 'detailProfile']);
+    Route::get('/v1/user', [UserController::class, 'fetch']);
+    Route::post('/v1/update-profile', [UserController::class, 'updateProfile']);
+    Route::post('/v1/logout', [UserController::class, 'logout']);
+    Route::post('/v1/delete', [UserController::class, 'delete']);
+    Route::get('/v1/detail-profile', [UserController::class, 'detailProfile']);
 
 
 });

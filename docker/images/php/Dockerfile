@@ -1,4 +1,4 @@
-FROM php:7.4-fpm-alpine
+FROM php:7.4-fpm-alpine AS build
 
 WORKDIR /var/www/html/app
 
