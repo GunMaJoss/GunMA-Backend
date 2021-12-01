@@ -251,7 +251,10 @@ class InternshipController extends Controller
     public function search($name)
     {
         //
-        return Internship::where('programName', 'like', '%' . $name . '%')->get();
+
+        return Internship::where('programName', 'like', '%' . $name . '%')
+        ->with(['user', 'location', 'tag'])
+        ->get();
     }
 
     public function listByTag($tag_id)
