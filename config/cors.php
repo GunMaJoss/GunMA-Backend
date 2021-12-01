@@ -19,7 +19,9 @@ return [
 
     'allowed_methods' => ['*'],
 
-    'allowed_origins' => ['http://127.0.0.1:*,http://localhost:*,http://api.gunma.my.id*,http://admin.gunma.my.id*'],
+    // 'allowed_origins' => ['http://127.0.0.1:*,http://localhost:*,http://api.gunma.my.id*,http://admin.gunma.my.id*'],
+
+    'allowed_origins' => ['*'],
 
     'allowed_origins_patterns' => [],
 
