@@ -250,9 +250,8 @@ class InternshipController extends Controller
      */
     public function search($name)
     {
-        //
-
         return Internship::where('programName', 'like', '%' . $name . '%')
+        ->orderBy('id','DESC')
         ->with(['user', 'location', 'tag'])
         ->get();
     }
