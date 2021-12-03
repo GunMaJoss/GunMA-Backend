@@ -23,7 +23,7 @@ class UserController extends Controller
                 'isAdmin'           => ['nullable'],
                 'isVerified'        => ['nullable'],
                 'address'           => ['nullable'],
-                'phoneNumber'       => ['nullable'],
+                'phone'       => ['nullable'],
                 'imageUrl'          => ['nullable'],
                 'description'       => ['nullable'],
                 'email_verified_at' => ['date'],
@@ -37,7 +37,7 @@ class UserController extends Controller
                 'isVerified' => $request->isVerified,
                 'address' => $request->address,
                 'imageUrl' => $request->imageUrl,
-                'phoneNumber' => $request->phoneNumber,
+                'phone' => $request->phoneNumber,
                 'description' => $request->description,
                 'email_verified_at' => $request->email_verified_at
             ]);
