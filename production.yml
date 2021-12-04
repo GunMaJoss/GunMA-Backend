@@ -1,0 +1,30 @@
+version: "3"
+services: 
+    webserver:
+        image: gunma_backend:0.1.0
+        container_name : gunma_backend
+        links:
+            - mysql
+        ports: 
+            - "8080:8080"
+        networks:
+            - gunma-net
+            
+    mysql:
+        container_name : gunma_mysql
+        image: mysql:8.0
+        ports:
+            - "3306:3306"
+        environment: 
+            MYSQL_DATABASE: ${DB_DATABASE}
+            MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+        volumes:
+            - mysql_volume:/etc/mysql/conf.d
+        networks:
+            - gunma-net
+
+volumes:
+   mysql_volume:
+
+networks:
+   gunma-net:

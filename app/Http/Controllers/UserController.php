@@ -37,7 +37,7 @@ class UserController extends Controller
                 'isVerified' => $request->isVerified,
                 'address' => $request->address,
                 'imageUrl' => $request->imageUrl,
-                'phone' => $request->phoneNumber,
+                'phone' => $request->phone,
                 'description' => $request->description,
                 'email_verified_at' => $request->email_verified_at
             ]);
