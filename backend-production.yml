@@ -1,15 +1,5 @@
 version: "3"
-services: 
-    webserver:
-        image: dhanifajar15/gunma_backend:0.1.0
-        container_name : gunma_backend
-        links:
-            - mysql
-        ports: 
-            - "8080:8080"
-        networks:
-            - gunma-net
-            
+services:   
     mysql:
         container_name : gunma_mysql
         image: mysql:8.0
@@ -22,7 +12,18 @@ services:
             - mysql_volume:/etc/mysql/conf.d
         networks:
             - gunma-net
-
+    backend:
+        image: dhanifajar15/gunma-backend:0.1.0
+        container_name : gunma_backend
+        build:
+            context: ./
+            dockerfile: ./docker/images/nginx/Dockerfile
+        links:
+            - mysql
+        ports: 
+            - "8080:80"
+        networks:
+            - gunma-net
 volumes:
    mysql_volume:
 
