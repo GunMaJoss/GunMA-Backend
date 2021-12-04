@@ -1,7 +1,7 @@
 version: "3"
 services: 
     webserver:
-        image: gunma_backend:0.1.0
+        image: dhanifajar15/gunma_backend:0.1.0
         container_name : gunma_backend
         links:
             - mysql
