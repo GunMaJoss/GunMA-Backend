@@ -15,12 +15,12 @@ return [
     |
     */
 
-    'paths' => ['api/*'],
+    'paths' => ['*'],
 
     'allowed_methods' => ['*'],
 
 
-     'allowed_origins' => ['*127.0.0.1:*','*localhost:*','*api.gunma.my.id*','*admin.gunma.my.id*'],
+     'allowed_origins' => ['*'],
 
     // 'allowed_origins' => ['*'],
 
