@@ -23,7 +23,7 @@ class UserController extends Controller
                 'isAdmin'           => ['nullable'],
                 'isVerified'        => ['nullable'],
                 'address'           => ['nullable'],
-                'phone'       => ['nullable'],
+                'phone'             => ['nullable'],
                 'imageUrl'          => ['nullable'],
                 'description'       => ['nullable'],
                 'email_verified_at' => ['date'],

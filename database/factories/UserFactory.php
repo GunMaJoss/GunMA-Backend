@@ -28,7 +28,7 @@ class UserFactory extends Factory
             'isVerified' => rand(0,1),
             'email' => $this->faker->unique()->safeEmail(),
             'address' => $this->faker->address(),
-            'phoneNumber' => $this->faker->randomNumber(5,true),
+            'phone' => $this->faker->randomNumber(5,true),
             'description' => $this->faker->sentence(rand(4,10)),
             'email_verified_at' => now(),
             'password' => $this->faker->password(),
