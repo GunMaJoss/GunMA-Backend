@@ -27,7 +27,7 @@ class InternshipController extends Controller
 
     public function index(Request $request)
     {
-        // $this->authorize('viewAny', Internship::class);
+
         $internships = Internship::orderBy('id', 'DESC')
             ->with(['user', 'location', 'tag'])
             ->get();
@@ -37,16 +37,17 @@ class InternshipController extends Controller
 
 
     }
-    public function listByUser($userId)
+    public function listByUser()
     {
-
-        $internships = Internship::where('user_id', $userId)
+        $user = Auth::user();
+        $internships = Internship::where('user_id', $user->id)
             ->orderBy('id', 'DESC')
             ->with(['user', 'location', 'tag'])
             ->get();
 
 
         return response()->json($internships, Response::HTTP_OK);
+        // return response()->json(Auth::check(), Response::HTTP_OK);
     }
 
     /**
@@ -65,12 +66,12 @@ class InternshipController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $userId)
+    public function store(Request $request)
     {
 
         // $this->authorize('create', Internship::class);
 
-        $user = User::findOrFail($userId);
+        $user = Auth::user();
 
 
 
@@ -187,6 +188,7 @@ class InternshipController extends Controller
 
 
         $internship = Internship::findOrFail($internship_id);
+        $this->authorize('update', $internship);
         $internship->update($request->all());
 
 
@@ -223,10 +225,11 @@ class InternshipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($internship_id)
+    public function delete($internship_id)
     {
         //
         $internship = Internship::findOrFail($internship_id);
+        $this->authorize('delete', $internship);
 
         try {
             $internship->delete();

@@ -30,13 +30,10 @@ Route::post('/v1/login-user', [UserController::class, 'login']);
 
 //INTERNSHIP
 Route::get('/v1/internship', [InternshipController::class, 'index']);
-Route::get('/v1/internship/{internship_id}', [InternshipController::class, 'show']);
-Route::post('/v1/internship/{user_id}', [InternshipController::class, 'store']);
-Route::put('/v1/internship/{internship_id}', [InternshipController::class, 'update']);
-Route::delete('/v1/internship/{internship_id}', [InternshipController::class, 'destroy']);
+
 Route::get('/v1/internship/search/{name}', [InternshipController::class, 'search']);
 //filter
-Route::get('/v1/internship/user/{user_id}',[InternshipController::class,'listByUser']);
+
 Route::get('/v1/internship/tag/{tag_id}', [InternshipController::class, 'listByTag']);
 Route::get('/v1/internship/location/{location_id}', [InternshipController::class, 'listByLocation']);
 Route::get('/v1/internship/isPaid/{isPaid}', [InternshipController::class, 'listByIsPaid']);
@@ -60,6 +57,11 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/v1/logout', [UserController::class, 'logout']);
     Route::post('/v1/delete', [UserController::class, 'delete']);
     Route::get('/v1/detail-profile', [UserController::class, 'detailProfile']);
+    Route::get('/v1/internship/{internship_id}', [InternshipController::class, 'show']);
+    Route::post('/v1/internship/user',[InternshipController::class,'listByUser']);
+    Route::post('/v1/internship/', [InternshipController::class, 'store']);
+    Route::put('/v1/internship/{internship_id}', [InternshipController::class, 'update']);
+    Route::delete('/v1/internship/{internship_id}', [InternshipController::class, 'delete']);
 
 
 });

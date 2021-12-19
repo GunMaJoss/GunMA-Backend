@@ -44,7 +44,7 @@ class InternshipPolicy
     public function create(User $user)
     {
         //
-        return auth()->id() == $user->id;
+        return true;
     }
 
     /**
@@ -58,7 +58,7 @@ class InternshipPolicy
     {
         //
 
-        return (auth()->check() && $internship->user_id == auth()->id());
+        return $user->id == $internship->user_id;
     }
 
     /**
@@ -71,7 +71,7 @@ class InternshipPolicy
     public function delete(User $user, Internship $internship)
     {
         //
-        return (auth()->check() && $internship->user_id == auth()->id());
+        return $user->id == $internship->user_id;
     }
 
     /**
