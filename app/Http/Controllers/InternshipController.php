@@ -259,32 +259,38 @@ class InternshipController extends Controller
         ->get();
     }
 
-    public function listByTag($tag_id)
-    {
-        return Internship::where('tag_id', $tag_id)
+    public function FilterOneCombination($attribute,$value){
+            return Internship::where($attribute, $value)
             ->orderBy('id', 'DESC')
             ->with(['user', 'location', 'tag'])
             ->get();
+
     }
-    public function listByLocation($location_id)
-    {
-        return Internship::where('location_id', $location_id)
+    public function FilterTwoCombination($attribute,$value,$attribute2,$value2){
+            return Internship::where($attribute, $value)
+            ->where($attribute2,$value2)
             ->orderBy('id', 'DESC')
             ->with(['user', 'location', 'tag'])
             ->get();
+
     }
-    public function listByIsPaid($isPaid)
-    {
-        return Internship::where('isPaid', $isPaid)
+    public function FilterThreeCombination($attribute,$value,$attribute2,$value2,$attribute3,$value3){
+            return Internship::where($attribute, $value)
+            ->where($attribute2,$value2)
+            ->where($attribute3,$value3)
             ->orderBy('id', 'DESC')
             ->with(['user', 'location', 'tag'])
             ->get();
-    }
-    public function listByIsWfh($isWfh)
-    {
-        return Internship::where('isWfh', $isWfh)
+        }
+        public function FilterFourCombination($attribute,$value,$attribute2,$value2,$attribute3,$value3,$attribute4,$value4){
+            return Internship::where($attribute, $value)
+            ->where($attribute2,$value2)
+            ->where($attribute3,$value3)
+            ->where($attribute4,$value4)
             ->orderBy('id', 'DESC')
             ->with(['user', 'location', 'tag'])
             ->get();
-    }
+        }
+
+
 }

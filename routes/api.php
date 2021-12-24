@@ -33,12 +33,10 @@ Route::get('/v1/internship', [InternshipController::class, 'index']);
 
 Route::get('/v1/internship/search/{name}', [InternshipController::class, 'search']);
 //filter
-
-Route::get('/v1/internship/tag/{tag_id}', [InternshipController::class, 'listByTag']);
-Route::get('/v1/internship/location/{location_id}', [InternshipController::class, 'listByLocation']);
-Route::get('/v1/internship/isPaid/{isPaid}', [InternshipController::class, 'listByIsPaid']);
-Route::get('/v1/internship/isWfh/{isWfh}', [InternshipController::class, 'listByIsWfh']);
-
+Route::get('/v1/internship/filter/{attribute}/{value}', [InternshipController::class, 'FilterOneCombination']);
+Route::get('/v1/internship/filter/{attribute}/{value}/{attribute2}/{value2}', [InternshipController::class, 'FilterTwoCombination']);
+Route::get('/v1/internship/filter/{attribute}/{value}/{attribute2}/{value2}/{attribute3}/{value3}', [InternshipController::class, 'FilterThreeCombination']);
+Route::get('/v1/internship/filter/{attribute}/{value}/{attribute2}/{value2}/{attribute3}/{value3}/{attribute4}/{value4}', [InternshipController::class, 'FilterFourCombination']);
 //TAG
 Route::get('/v1/tag', [TagController::class, 'index']);
 Route::get('/v1/tag/search/{name}', [TagController::class, 'search']);
