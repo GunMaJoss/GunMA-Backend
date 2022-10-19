@@ -8,4 +8,4 @@ RUN php artisan optimize
 RUN php artisan shield:generate
 RUN php artisan db:seed
 RUN npm run dev
-ADD docker/images/nginx.conf /etc/nginx/conf.d/default.conf
+ADD docker/nginx.conf /etc/nginx/conf.d/default.conf
